@@ -14,8 +14,8 @@
 - [Maven Archetype搭建模板工程](https://note.xcloudapi.com/2021/11/22/Maven-Archetype%E6%90%AD%E5%BB%BA%E6%A8%A1%E6%9D%BF%E5%B7%A5%E7%A8%8B/)
 
 #### 相关依赖
-- 本工程依赖https://github.com/guanyang/spring-base-parent相关组件
-- 将依赖工程clone到本地，执行`mvn clean install`，将相关组件生成到本地
+- 本工程依赖[https://github.com/guanyang/spring-base-parent](https://github.com/guanyang/spring-base-parent)相关组件
+- 将`spring-base-parent`下载到本地，执行`mvn clean install`，将相关组件生成到本地
 
 #### 基于模板创建应用
 - 将archetype模板生成到本地
