@@ -74,6 +74,11 @@
         <artifactId>spring-base-xss</artifactId>
         <version>${spring.base.version}</version>
       </dependency>
+      <dependency>
+        <groupId>org.gy.framework</groupId>
+        <artifactId>spring-base-log</artifactId>
+        <version>${spring.base.version}</version>
+      </dependency>
 
       <dependency>
         <groupId>commons-beanutils</groupId>

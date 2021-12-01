@@ -42,3 +42,4 @@ mvn archetype:generate  \
 - 统一全局异常处理器，参考ServiceExceptionHandler
 - 引入`mybatis plus`中间件，支持代码自动生成及数据源常用配置，代码自动生成参考`MybatisAutoGeneratorHelper`
 - 支持csrf、xss安全加固，参考示例`TestController`
+- 支持traceid和日志切面记录方法调用日志，参考示例`TestController`
