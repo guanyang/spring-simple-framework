@@ -64,6 +64,16 @@
         <artifactId>spring-base-util</artifactId>
         <version>${spring.base.version}</version>
       </dependency>
+      <dependency>
+        <groupId>org.gy.framework</groupId>
+        <artifactId>spring-base-csrf</artifactId>
+        <version>${spring.base.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.gy.framework</groupId>
+        <artifactId>spring-base-xss</artifactId>
+        <version>${spring.base.version}</version>
+      </dependency>
 
       <dependency>
         <groupId>commons-beanutils</groupId>

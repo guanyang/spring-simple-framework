@@ -11,8 +11,10 @@ import javax.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
 import org.gy.framework.core.dto.Response;
 import org.gy.framework.core.exception.CommonException;
+import org.gy.framework.csrf.exception.CsrfException;
 import ${package}.util.exception.BizCode;
 import ${package}.util.exception.BizException;
+import org.gy.framework.xss.exception.XssException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageConversionException;
 import org.springframework.validation.BindException;
@@ -163,6 +165,24 @@ public class ServiceExceptionHandler {
     public Response handleCommonException(CommonException e) {
         log.info("[CommonException]业务异常捕获: code={},msg={}", e.getError(), e.getMsg());
         return Response.asError(e.getError(), e.getMsg());
+    }
+
+    /**
+     * 业务异常处理
+     */
+    @ExceptionHandler(CsrfException.class)
+    public Response handleCsrfException(CsrfException e) {
+        log.info("[CsrfException]csrf异常捕获: msg={}.", e.getMessage());
+        return Response.asError(BizCode.CSRF_ERROR.getError(), BizCode.CSRF_ERROR.getMsg());
+    }
+
+    /**
+     * 业务异常处理
+     */
+    @ExceptionHandler(XssException.class)
+    public Response handleXssException(XssException e) {
+        log.info("[XssException]Xss异常捕获: msg={}.", e.getMessage());
+        return Response.asError(BizCode.XSS_ERROR.getError(), BizCode.XSS_ERROR.getMsg());
     }
 
     private String buildErrMsg(BindingResult br) {

@@ -1,7 +1,9 @@
 package org.gy.framework.demo.service.controller;
 
+import javax.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.gy.framework.core.dto.Response;
+import org.gy.framework.csrf.annotation.CsrfCheck;
 import org.gy.framework.demo.service.api.dto.TestRequestDTO;
 import org.gy.framework.demo.service.api.dto.TestResponseDTO;
 import org.gy.framework.demo.service.api.service.TestService;
@@ -25,7 +27,8 @@ public class TestController {
     private TestService testService;
 
     @GetMapping("/api")
-    public Response test(TestRequestDTO dto) {
+    @CsrfCheck
+    public Response test(@Valid TestRequestDTO dto) {
         return testService.test(dto);
     }
 
