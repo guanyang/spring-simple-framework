@@ -29,6 +29,8 @@ mvn archetype:generate  \
 
 #### Change Log
 ##### 1.0.0-SNAPSHOT
-```
-初始化版本
-```
+- 统一架构分层结构定义，方便扩展及治理
+- API统一异常、错误码规范定义，参考ApiBizException
+- 统一全局异常处理器，参考ServiceExceptionHandler
+- 引入`mybatis plus`中间件，支持代码自动生成及数据源常用配置，代码自动生成参考`MybatisAutoGeneratorHelper`
+- 支持csrf、xss安全加固，参考示例`TestController`
