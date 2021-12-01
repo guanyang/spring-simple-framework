@@ -14,6 +14,10 @@
 - [Maven Archetype搭建模板工程](https://note.xcloudapi.com/2021/11/22/Maven-Archetype%E6%90%AD%E5%BB%BA%E6%A8%A1%E6%9D%BF%E5%B7%A5%E7%A8%8B/)
 
 #### 基于模板创建应用
+- 将archetype模板生成到本地
+```
+mvn clean install
+```
 - 基于archetype模板创建工程，命令如下：
 
 ``` 
