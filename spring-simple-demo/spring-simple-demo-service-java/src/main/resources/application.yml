@@ -1,0 +1,19 @@
+server:
+  port: 8081
+  tomcat:
+    max-threads: 500
+    min-spare-threads: 50
+
+spring:
+  application:
+    name: spring-simple-demo-service-java
+  jackson:
+    default-property-inclusion: non_null
+  profiles:
+    active: live
+
+# apollo配置
+#apollo:
+#  bootstrap:
+#    enabled: true
+#    namespaces: application,application.yml

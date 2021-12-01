@@ -1,8 +1,4 @@
-### srping-simple-framework模块介绍
-
-#### 模块说明
-- spring-archetype-parent：archetype模板工程
-- spring-simiple-demo：archetype模板源码
+### spring-archetype-parent
 
 #### 目标
 1. 基于工程命名不够规范，制定工程命名规约，提升识别性
