@@ -20,3 +20,15 @@ maven依赖管理
 ----
 - 【强制】所有依赖包版本管理定义在parent工程<dependencyManagement>模块中，避免版本多处定义出现不一致的情况
 - 【强制】parent工程不要直接定义<dependencies>模块，避免所有子模块都会依赖，增加包体积
+
+功能说明
+----
+- 统一架构分层结构定义，方便扩展及治理
+- API统一异常、错误码规范定义，参考ApiBizException
+- 统一全局异常处理器，参考ServiceExceptionHandler
+- 引入`mybatis plus`中间件，支持代码自动生成及数据源常用配置，代码自动生成参考`MybatisAutoGeneratorHelper`
+- 支持csrf、xss安全加固，参考示例`TestController`
+  - 在需要csrf验证的Controller方法加上@CsrfCheck注解
+  - 请求对象需要添加`@Valid`或者`@Validated`注解才会进行xss校验
+- 支持traceid和日志切面记录方法调用日志，参考示例`TestController`
+  - 日志`@LogTrace`支持类、方法层级定义
