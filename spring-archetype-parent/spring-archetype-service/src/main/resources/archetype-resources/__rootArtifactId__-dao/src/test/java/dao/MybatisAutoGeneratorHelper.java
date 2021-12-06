@@ -37,12 +37,12 @@ public class MybatisAutoGeneratorHelper {
         System.getProperty("user.dir") + System.getProperty("file.separator");
 
     public static void main(String[] args) {
-        String author = "gy";
-        String basePackage = "${package}.dao";
-        String mavenProjectName = "${parentArtifactId}-dao";
-        String sourcePath = path + mavenProjectName + SRC_PATH;
-        String mapperXmlPath = path + mavenProjectName + RESOURCE_PATH + "/mappers";
-        String[] tableNames = {"hello_world"};
+        String author = "gy";//代码生成者名字，仅作标识而已，可随意指定
+        String basePackage = "${package}.dao";//框架模板自动生成
+        String mavenProjectName = "${parentArtifactId}-dao";//框架模板自动生成
+        String sourcePath = path + mavenProjectName + SRC_PATH;//固定路径
+        String mapperXmlPath = path + mavenProjectName + RESOURCE_PATH + "/mappers";//固定路径
+        String[] tableNames = {"hello_world"};//要生成的数据库表名，可以指定多个
         generator(author, basePackage, sourcePath, mapperXmlPath, url, username, password, tableNames);
     }
 
