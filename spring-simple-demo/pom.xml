@@ -28,7 +28,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <mysql.driver.version>5.1.47</mysql.driver.version>
-    <spring.base.version>1.0.0-SNAPSHOT</spring.base.version>
+    <spring.base.version>1.0.1-SNAPSHOT</spring.base.version>
   </properties>
 
   <dependencyManagement>
