@@ -26,4 +26,9 @@ public class HelloController {
         res.put("time", System.currentTimeMillis());
         return res;
     }
+
+    @GetMapping(value = "/time")
+    public String time() {
+        return String.valueOf(System.currentTimeMillis());
+    }
 }
