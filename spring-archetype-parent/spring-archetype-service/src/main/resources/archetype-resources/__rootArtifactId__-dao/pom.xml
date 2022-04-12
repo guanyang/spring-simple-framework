@@ -9,6 +9,10 @@
   <artifactId>${artifactId}</artifactId>
   <packaging>jar</packaging>
   <dependencies>
+    <dependency>
+      <groupId>org.gy.framework</groupId>
+      <artifactId>spring-base-core</artifactId>
+    </dependency>
 
     <dependency>
       <groupId>org.projectlombok</groupId>

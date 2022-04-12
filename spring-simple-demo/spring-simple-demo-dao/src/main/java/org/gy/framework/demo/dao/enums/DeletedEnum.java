@@ -1,8 +1,9 @@
 package org.gy.framework.demo.dao.enums;
 
-import java.util.stream.Stream;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import org.gy.framework.core.exception.Assert;
+import org.gy.framework.core.support.IStdEnum;
 
 /**
  * 功能描述：
@@ -12,7 +13,7 @@ import lombok.Getter;
  */
 @Getter
 @AllArgsConstructor
-public enum DeletedEnum implements StdEnum {
+public enum DeletedEnum implements IStdEnum<Integer> {
 
     //正常枚举
     NO(0, "正常"),
@@ -24,7 +25,13 @@ public enum DeletedEnum implements StdEnum {
     private final String desc;
 
     public static DeletedEnum codeOf(Integer code, DeletedEnum defaultType) {
-        return Stream.of(values()).filter(item -> item.code.equals(code)).findFirst().orElse(defaultType);
+        return IStdEnum.codeOf(DeletedEnum.class, code, defaultType);
+    }
+
+    public static DeletedEnum codeOf(Integer code) {
+        DeletedEnum deletedEnum = codeOf(code, null);
+        Assert.notNull(deletedEnum, "unknown DeletedEnum code:" + code);
+        return deletedEnum;
     }
 
 
