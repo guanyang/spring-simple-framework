@@ -54,6 +54,18 @@ mvn archetype:generate  \
     -DarchetypeGroupId=org.gy.framework \
     -DarchetypeVersion=1.0.0-SNAPSHOT
 ``` 
+#### 本地调试开发
+- 初次启动【xxx-service-java】，需要调整数据源配置，否则启动报错
+  - 数据源配置路径：xxx-service-java/src/main/resources/application-live.yml
+- 该框架已经默认引入`mybatis plus`中间件，支持代码自动生成及数据源常用配置
+  - 代码自动生成入口：xxx-dao/src/test/java/${package}.dao/MybatisAutoGeneratorHelper.java
+  - mybatis-plus常用配置入口：xxx-service-java/src/main/resources/application.yml，一般不需要修改，默认即可
+- 代码自动生成使用说明，只需要调整以下变量即可，其他可以保持不变，入口类：`MybatisAutoGeneratorHelper`
+  - url：数据源地址
+  - username：数据库用户名
+  - password：数据库密码
+  - author：代码生成者名字，仅作标识而已，可随意指定
+  - tableNames：要生成的数据库表名，可以指定多个
 
 ### 相关文档
 - [Maven Archetype搭建模板工程](https://note.xcloudapi.com/2021/11/22/Maven-Archetype%E6%90%AD%E5%BB%BA%E6%A8%A1%E6%9D%BF%E5%B7%A5%E7%A8%8B/)
