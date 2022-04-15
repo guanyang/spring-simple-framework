@@ -1,4 +1,4 @@
-## srping-simple-framework架构
+## spring-simple-framework架构
 
 ### 架构目标
 1. 基于工程命名不够规范，制定工程命名规约，提升识别性
