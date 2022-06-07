@@ -17,15 +17,16 @@
 - 当前工程依赖了一些常用组件，避免重复造轮子，代码结构更统一，可以提升研发效率
 - 组件源码参考：[guanyang/spring-base-parent](https://github.com/guanyang/spring-base-parent)
 
-组件模块(artifactId) | 说明 | 备注
---- | --- | ---
-spring-base-core | 基础核心定义 | 常用dto、exception、filter抽象
-spring-base-util | 常用工具类合集 |
-spring-base-csrf | csrf组件 |
-spring-base-sign | 接口签名组件 |
-spring-base-xss | 接口参数xss校验组件|
-spring-base-lock | 分布式锁组件 |
-spring-base-log | 日志组件 | 支持traceid和日志切面
+| 组件模块(artifactId)  | 说明          | 备注                                                     |
+|-------------------|-------------|--------------------------------------------------------|
+| spring-base-core  | 基础核心定义      | [参考文档](https://github.com/guanyang/spring-base-parent) |
+| spring-base-util  | 常用工具类合集     | [参考文档](https://github.com/guanyang/spring-base-parent) |
+| spring-base-csrf  | csrf组件      | [参考文档](https://github.com/guanyang/spring-base-parent) |
+| spring-base-sign  | 接口签名组件      | [参考文档](https://github.com/guanyang/spring-base-parent) |
+| spring-base-xss   | 接口参数xss校验组件 | [参考文档](https://github.com/guanyang/spring-base-parent) |
+| spring-base-lock  | 分布式锁组件      | [参考文档](https://github.com/guanyang/spring-base-parent) |
+| spring-base-log   | 日志组件        | [参考文档](https://github.com/guanyang/spring-base-parent) |
+| spring-base-limit | 限流组件        | [参考文档](https://github.com/guanyang/spring-base-parent) |
 
 ### 快速使用指南
 #### 应用工程架构
