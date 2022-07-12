@@ -36,12 +36,12 @@
 
 #### 相关依赖
 - 本工程依赖[guanyang/spring-base-parent](https://github.com/guanyang/spring-base-parent) 相关组件
-- 将`spring-base-parent`下载到本地，执行`mvn clean install`，将相关组件生成到本地
+- 将`spring-base-parent`下载到本地，执行`mvn clean install -Dmaven.test.skip=true`，将相关组件生成到本地
 
 #### 基于模板创建应用
 - 将archetype模板生成到本地
 ```
-mvn clean install
+mvn clean install -Dmaven.test.skip=true
 ```
 - 基于archetype模板创建工程，命令如下：
 
