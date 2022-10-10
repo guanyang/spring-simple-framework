@@ -24,6 +24,12 @@
         <include>__gitignore__</include>
       </includes>
     </fileSet>
+    <fileSet encoding="UTF-8">
+      <directory></directory>
+      <includes>
+        <include>**/*.sh</include>
+      </includes>
+    </fileSet>
   </fileSets>
   <modules>
     <module id="${rootArtifactId}-util" dir="__rootArtifactId__-util" name="${rootArtifactId}-util">
