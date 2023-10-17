@@ -29,29 +29,37 @@
     <mysql.driver.version>8.0.33</mysql.driver.version>
     <spring.base.version>1.0.3-SNAPSHOT</spring.base.version>
     <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
+    <spring-boot.version>2.7.16</spring-boot.version>
   </properties>
 
   <dependencyManagement>
     <dependencies>
       <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring-boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
         <groupId>org.gy.framework</groupId>
         <artifactId>spring-simple-demo-util</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>${current.version}</version>
       </dependency>
       <dependency>
         <groupId>org.gy.framework</groupId>
         <artifactId>spring-simple-demo-dao</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>${current.version}</version>
       </dependency>
       <dependency>
         <groupId>org.gy.framework</groupId>
         <artifactId>spring-simple-demo-common</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>${current.version}</version>
       </dependency>
       <dependency>
         <groupId>org.gy.framework</groupId>
         <artifactId>spring-simple-demo-service-api</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>${current.version}</version>
       </dependency>
 
       <dependency>
@@ -78,58 +86,6 @@
         <groupId>org.gy.framework</groupId>
         <artifactId>spring-base-log</artifactId>
         <version>${spring.base.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>commons-beanutils</groupId>
-        <artifactId>commons-beanutils</artifactId>
-        <version>1.9.0</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.commons</groupId>
-        <artifactId>commons-collections4</artifactId>
-        <version>4.1</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.commons</groupId>
-        <artifactId>commons-lang3</artifactId>
-        <version>3.9</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.commons</groupId>
-        <artifactId>commons-pool2</artifactId>
-        <version>2.4.2</version>
-      </dependency>
-      <dependency>
-        <groupId>commons-codec</groupId>
-        <artifactId>commons-codec</artifactId>
-        <version>1.10</version>
-      </dependency>
-      <dependency>
-        <groupId>com.google.guava</groupId>
-        <artifactId>guava</artifactId>
-        <version>24.1-jre</version>
-      </dependency>
-      <dependency>
-        <groupId>com.google.code.gson</groupId>
-        <artifactId>gson</artifactId>
-        <version>2.8.5</version>
-      </dependency>
-      <dependency>
-        <groupId>cn.hutool</groupId>
-        <artifactId>hutool-all</artifactId>
-        <version>5.3.0</version>
-      </dependency>
-      <dependency>
-        <groupId>org.projectlombok</groupId>
-        <artifactId>lombok</artifactId>
-        <version>1.16.20</version>
-        <scope>provided</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.httpcomponents</groupId>
-        <artifactId>httpclient</artifactId>
-        <version>4.5.5</version>
       </dependency>
 
       <!--数据源配置 start-->
@@ -170,48 +126,6 @@
         <scope>test</scope>
       </dependency>
       <!--代码生成依赖end-->
-
-      <dependency>
-        <groupId>com.github.pagehelper</groupId>
-        <artifactId>pagehelper</artifactId>
-        <version>5.1.8</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.hibernate.validator</groupId>
-        <artifactId>hibernate-validator</artifactId>
-        <version>6.0.16.Final</version>
-      </dependency>
-      <dependency>
-        <groupId>javax.validation</groupId>
-        <artifactId>validation-api</artifactId>
-        <version>2.0.1.Final</version>
-      </dependency>
-
-      <dependency>
-        <groupId>javax.servlet</groupId>
-        <artifactId>javax.servlet-api</artifactId>
-        <version>3.1.0</version>
-        <scope>provided</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.mockito</groupId>
-        <artifactId>mockito-core</artifactId>
-        <version>2.27.0</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.powermock</groupId>
-        <artifactId>powermock-module-junit4</artifactId>
-        <version>2.0.2</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.powermock</groupId>
-        <artifactId>powermock-api-mockito2</artifactId>
-        <version>2.0.2</version>
-        <scope>test</scope>
-      </dependency>
     </dependencies>
   </dependencyManagement>
 
