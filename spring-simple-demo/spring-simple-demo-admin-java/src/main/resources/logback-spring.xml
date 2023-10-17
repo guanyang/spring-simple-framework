@@ -9,7 +9,7 @@
     <!--占位符定义：日志格式-->
     <property name="PATTERN" value="%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ} | %-5level | ${appName} | ${HOSTNAME} | %X{x-trace-id:-N/A} | %thread | %logger{40} | %msg%xEx%n" />
 
-    <property name="logDir" value="/Users/gy/logs/applogs/${appName}/${HOSTNAME}" />
+    <property name="logDir" value="/home/www/logs/applogs/${appName}/${HOSTNAME}" />
 
     <!-- SizeAndTimeBasedRollingPolicy -->
     <property name="maxFileSize" value="200MB" />

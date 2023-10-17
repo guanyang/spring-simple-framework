@@ -9,6 +9,18 @@ spring:
     name: ${rootArtifactId}-service-java
   jackson:
     default-property-inclusion: non_null
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false  #对象属性为空时，序列化不会失败
+    deserialization:
+      FAIL_ON_UNKNOWN_PROPERTIES: false #忽略未知字段
+    parser:
+      ALLOW_UNQUOTED_FIELD_NAMES: true  #反序列Json字符串中属性名没有双引号
+      ALLOW_SINGLE_QUOTES: true #反序列化可以解析单引号包住的属性名称和字符串值
+      #      ALLOW_UNQUOTED_CONTROL_CHARS: true  #反序列Json字符串中包含制控制字符，如\t
+      ALLOW_COMMENTS: true  #带注释符支持反序列化
+  #      ALLOW_BACKSLASH_ESCAPING_ANY_CHARACTER: true  #带反斜杠支持反序列化
+  #      ALLOW_NON_NUMERIC_NUMBERS: true #数字类型值未知时支持反序列化
+  #      ALLOW_NUMERIC_LEADING_ZEROS: true #反序列化可解析以"0"为开头的数字
   profiles:
     active: live
 
@@ -26,6 +38,7 @@ mybatis-plus:
   global-config:
     db-config:
       id-type: auto
+      logic-delete-field: deleted
       logic-delete-value: 1
       logic-not-delete-value: 0
   configuration:

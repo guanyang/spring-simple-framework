@@ -23,12 +23,12 @@
 
   <properties>
     <current.version>1.0.0-SNAPSHOT</current.version>
-    <java.version>1.8</java.version>
-    <springboot.version>2.6.0</springboot.version>
+    <java.version>11</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <mysql.driver.version>5.1.47</mysql.driver.version>
-    <spring.base.version>1.0.1-SNAPSHOT</spring.base.version>
+    <mysql.driver.version>8.0.33</mysql.driver.version>
+    <spring.base.version>1.0.3-SNAPSHOT</spring.base.version>
+    <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
   </properties>
 
   <dependencyManagement>
@@ -106,11 +106,6 @@
         <version>1.10</version>
       </dependency>
       <dependency>
-        <groupId>com.github.ben-manes.caffeine</groupId>
-        <artifactId>caffeine</artifactId>
-        <version>2.8.0</version>
-      </dependency>
-      <dependency>
         <groupId>com.google.guava</groupId>
         <artifactId>guava</artifactId>
         <version>24.1-jre</version>
@@ -142,21 +137,22 @@
         <groupId>mysql</groupId>
         <artifactId>mysql-connector-java</artifactId>
         <version>${mysql.driver.version}</version>
+        <scope>runtime</scope>
       </dependency>
       <dependency>
         <groupId>com.baomidou</groupId>
         <artifactId>mybatis-plus-boot-starter</artifactId>
-        <version>3.4.3.4</version>
+        <version>${mybatis-plus.version}</version>
       </dependency>
       <dependency>
         <groupId>com.baomidou</groupId>
         <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
-        <version>3.4.1</version>
+        <version>3.6.1</version>
       </dependency>
       <dependency>
         <groupId>com.alibaba</groupId>
         <artifactId>druid-spring-boot-starter</artifactId>
-        <version>1.2.8</version>
+        <version>1.2.18</version>
       </dependency>
       <!--数据源配置 end-->
 
@@ -164,12 +160,14 @@
       <dependency>
         <groupId>com.baomidou</groupId>
         <artifactId>mybatis-plus-generator</artifactId>
-        <version>3.5.1</version>
+        <version>${mybatis-plus.version}</version>
+        <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>org.freemarker</groupId>
         <artifactId>freemarker</artifactId>
-        <version>2.3.31</version>
+        <version>2.3.32</version>
+        <scope>test</scope>
       </dependency>
       <!--代码生成依赖end-->
 

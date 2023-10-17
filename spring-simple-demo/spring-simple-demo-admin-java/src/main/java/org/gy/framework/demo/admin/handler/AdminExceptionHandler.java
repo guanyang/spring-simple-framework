@@ -1,6 +1,5 @@
 package org.gy.framework.demo.admin.handler;
 
-import com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException;
 import java.util.List;
 import java.util.Set;
 import javax.validation.ConstraintViolation;
@@ -47,15 +46,6 @@ public class AdminExceptionHandler {
     public Response handle(HttpClientErrorException e) {
         log.error("依赖服务调用失败：", e);
         return Response.asError(HttpStatus.INTERNAL_SERVER_ERROR.value(), "服务器繁忙，请稍后重试!");
-    }
-
-    /**
-     * SQL返回数据size太大的异常。
-     */
-    @ExceptionHandler(MySQLNonTransientConnectionException.class)
-    public Response handleMySQLNonTransientConnectionException(MySQLNonTransientConnectionException e) {
-        log.error("MySQL数据查询异常：", e);
-        return Response.asError(HttpStatus.INTERNAL_SERVER_ERROR.value(), "查询数据开小差啦~");
     }
 
 

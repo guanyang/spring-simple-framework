@@ -4,7 +4,10 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.generator.FastAutoGenerator;
 import com.baomidou.mybatisplus.generator.config.OutputFile;
 import com.baomidou.mybatisplus.generator.config.TemplateType;
+import com.baomidou.mybatisplus.generator.config.rules.DbColumnType;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
+
+import java.sql.Types;
 import java.util.Collections;
 
 /**
@@ -65,27 +68,40 @@ public class MybatisAutoGeneratorHelper {
                     .fileOverride()                     // 覆盖已生成文件
                     .outputDir(sourcePath); // 指定输出目录
             })
+            .dataSourceConfig(builder -> builder.typeConvertHandler((globalConfig, typeRegistry, metaInfo) -> {
+                int typeCode = metaInfo.getJdbcType().TYPE_CODE;
+                if (typeCode == Types.TINYINT || typeCode == Types.SMALLINT) {
+                    // 自定义类型转换
+                    return DbColumnType.INTEGER;
+                }
+                return typeRegistry.getColumnType(metaInfo);
+            }))
             .packageConfig(builder -> {
                 builder.parent(basePackage) // 设置父包名
                     .pathInfo(Collections
-                        .singletonMap(OutputFile.mapperXml, mapperXmlPath)); // 设置mapperXml生成路径
+                        .singletonMap(OutputFile.xml, mapperXmlPath)); // 设置mapperXml生成路径
             })
             .strategyConfig(builder -> {
                 builder.addInclude(tableNames)   //设置表名
-                    .entityBuilder()
-                    .idType(IdType.AUTO)            //id自增
-                    .enableLombok()                 //开启lombok
-                    .enableChainModel()
-//                    .logicDeleteColumnName("is_deleted")    //逻辑删除数据库字段
-//                    .logicDeletePropertyName("isDeleted")   //逻辑删除属性名称
-                    .enableActiveRecord().build()           //开启 activeRecord 模式
-                    .mapperBuilder()
-                    .enableBaseColumnList()     //XML columList
-                    .enableBaseResultMap().build();     //XML ResultMap
+                        .entityBuilder()
+                        .idType(IdType.AUTO)            //id自增
+                        .enableLombok()                 //开启lombok
+                        .enableColumnConstant()         //开启生成字段常量
+                        .enableChainModel()
+                        .enableFileOverride()
+                        .versionColumnName("version")   //乐观锁字段名(数据库字段)
+                        .addTableFills()
+                        .logicDeleteColumnName("deleted")    //逻辑删除数据库字段
+                        .enableActiveRecord().build()           //开启 activeRecord 模式
+                        .controllerBuilder()
+                        .enableRestStyle().build()
+                        .mapperBuilder()
+                        .enableBaseColumnList()     //XML columList
+                        .enableBaseResultMap().build();     //XML ResultMap
             })
             .templateEngine(new FreemarkerTemplateEngine()) // 使用Freemarker引擎模板，默认的是Velocity引擎模板
             .templateConfig(builder -> {
-                builder.disable(TemplateType.CONTROLLER);   //禁用controller生成
+//                builder.disable(TemplateType.CONTROLLER);   //禁用controller生成
             })
             .execute();
     }
