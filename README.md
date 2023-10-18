@@ -11,6 +11,21 @@
 4. 降低架构初始化及常用组件的接入成本，提升研发效率。
 5. 基于命令行快速创建标准化应用模块，简单高效。
 
+### SSF框架能力
+- 统一架构分层结构定义，方便扩展及治理
+- 统一返回对象定义，让API更专业优雅，参考`Response`
+- API统一异常、错误码规范定义，更方便识别错误及管理，参考`ApiBizException`
+- 统一全局异常处理器，参考`ServiceExceptionHandler`
+- 引入`mybatis plus`中间件，支持代码自动生成及数据源常用配置，代码自动生成参考`MybatisAutoGeneratorHelper`
+  - 支持`hikari`连接池，优化数据库连接属性配置
+  - 支持乐观锁、逻辑删除及读写分离配置
+- 支持csrf、xss安全加固，参考示例`TestController`
+  - 在需要csrf验证的Controller方法加上`@CsrfCheck`注解
+  - 请求对象需要添加`@Valid`或者`@Validated`注解才会进行xss校验
+- 支持traceid和日志切面记录方法调用日志，参考示例`TestController`
+  - 标准化日志输出，记录调用者IP、服务器IP、入参出参，方便快速定位问题
+  - 日志`@LogTrace`支持类、方法层级定义
+
 ### SSF架构源码
 - Github源码：https://github.com/guanyang/spring-simple-framework
 
@@ -36,18 +51,13 @@
 | spring-base-log   | 日志组件        | [参考文档](https://github.com/guanyang/spring-base-parent) |
 | spring-base-limit | 限流组件        | [参考文档](https://github.com/guanyang/spring-base-parent) |
 
-### 框架能力
-- 统一架构分层结构定义，方便扩展及治理
-- API统一异常、错误码规范定义，参考ApiBizException
-- 统一全局异常处理器，参考ServiceExceptionHandler
-- 引入`mybatis plus`中间件，支持代码自动生成及数据源常用配置，代码自动生成参考`MybatisAutoGeneratorHelper`
-- 支持csrf、xss安全加固，参考示例`TestController`
-  - 在需要csrf验证的Controller方法加上@CsrfCheck注解
-  - 请求对象需要添加`@Valid`或者`@Validated`注解才会进行xss校验
-- 支持traceid和日志切面记录方法调用日志，参考示例`TestController`
-  - 日志`@LogTrace`支持类、方法层级定义
 
 ### 快速使用指南
+#### 环境配置
+- JDK 11+
+- Spring Boot 2.7.16+
+- Mybatis Plus 3.5.3.1+
+
 #### 应用工程架构
 
 ![应用工程架构](doc/系统依赖图.png)
