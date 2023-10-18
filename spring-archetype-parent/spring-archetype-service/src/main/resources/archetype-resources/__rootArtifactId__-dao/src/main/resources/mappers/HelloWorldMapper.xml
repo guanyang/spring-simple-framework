@@ -8,16 +8,18 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="${package}.dao.entity.HelloWorld">
         <id column="id" property="id" />
-        <result column="say_hello" property="sayHello" />
-        <result column="your_name" property="yourName" />
-        <result column="gmt_created" property="gmtCreated" />
-        <result column="gmt_modified" property="gmtModified" />
-        <result column="is_deleted" property="isDeleted" />
+        <result column="name" property="name" />
+        <result column="version" property="version" />
+        <result column="deleted" property="deleted" />
+        <result column="create_by" property="createBy" />
+        <result column="update_by" property="updateBy" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, say_hello, your_name, gmt_created, gmt_modified, is_deleted
+        id, name, version, deleted, create_by, update_by, create_time, update_time
     </sql>
 
 </mapper>

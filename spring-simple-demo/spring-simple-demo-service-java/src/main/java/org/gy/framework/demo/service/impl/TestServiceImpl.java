@@ -31,9 +31,9 @@ public class TestServiceImpl implements TestService {
     public Response<TestResponseDTO> test(TestRequestDTO dto) {
         TestResponseDTO responseDTO = new TestResponseDTO();
         LambdaQueryWrapper<HelloWorld> wrapper = Wrappers.lambdaQuery();
-        wrapper.eq(HelloWorld::getYourName, dto.getName());
+        wrapper.eq(HelloWorld::getName, dto.getName());
         HelloWorld entity = helloWorldService.getOne(wrapper);
-        responseDTO.setName(Optional.ofNullable(entity).map(HelloWorld::getYourName).orElse(null));
+        responseDTO.setName(Optional.ofNullable(entity).map(HelloWorld::getName).orElse(null));
         responseDTO.setTime(System.currentTimeMillis());
         return Response.asSuccess(responseDTO);
     }

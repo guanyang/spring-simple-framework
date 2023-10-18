@@ -99,6 +99,7 @@ mvn archetype:generate  \
 ``` 
 #### 本地调试开发
 - 初次启动【xxx-service-java】，需要调整数据源配置，否则启动报错
+  - 初始化示例SQL: xxx-dao/src/test/resources/test-init.sql，将其导入数据库进行调试【可选】
   - 数据源配置路径：xxx-service-java/src/main/resources/application-live.yml
 - 该框架已经默认引入`mybatis plus`中间件，支持代码自动生成及数据源常用配置
   - 代码自动生成入口：xxx-dao/src/test/java/${package}.dao/MybatisAutoGeneratorHelper.java

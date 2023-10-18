@@ -1,8 +1,6 @@
 package org.gy.framework.demo.dao.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -26,27 +24,64 @@ public class HelloWorld extends Model<HelloWorld> {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     * 主键
+     */
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-    private String sayHello;
+    /**
+     * 名称
+     */
+    private String name;
 
-    private String yourName;
+    /**
+     * 版本号
+     */
+    @Version
+    private Integer version;
+
+    /**
+     * 删除状态，0正常 1删除
+     */
+    @TableLogic
+    private Integer deleted;
+
+    /**
+     * 创建人
+     */
+    private String createBy;
+
+    /**
+     * 编辑人
+     */
+    private String updateBy;
 
     /**
      * 创建时间
      */
-    private LocalDateTime gmtCreated;
+    private LocalDateTime createTime;
 
     /**
      * 更新时间
      */
-    private LocalDateTime gmtModified;
+    private LocalDateTime updateTime;
 
-    /**
-     * 是否逻辑删除
-     */
-    private Integer isDeleted;
+    public static final String ID = "id";
+
+    public static final String NAME = "name";
+
+    public static final String VERSION = "version";
+
+    public static final String DELETED = "deleted";
+
+    public static final String CREATE_BY = "create_by";
+
+    public static final String UPDATE_BY = "update_by";
+
+    public static final String CREATE_TIME = "create_time";
+
+    public static final String UPDATE_TIME = "update_time";
 
 
     @Override

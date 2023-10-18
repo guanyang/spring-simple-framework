@@ -24,18 +24,23 @@ maven依赖管理
 功能说明
 ----
 - 统一架构分层结构定义，方便扩展及治理
-- API统一异常、错误码规范定义，参考ApiBizException
-- 统一全局异常处理器，参考ServiceExceptionHandler
+- 统一返回对象定义，让API更专业优雅，参考`Response`
+- API统一异常、错误码规范定义，更方便识别错误及管理，参考`ApiBizException`
+- 统一全局异常处理器，参考`ServiceExceptionHandler`
 - 引入`mybatis plus`中间件，支持代码自动生成及数据源常用配置，代码自动生成参考`MybatisAutoGeneratorHelper`
+  - 支持`hikari`连接池，优化数据库连接属性配置
+  - 支持乐观锁、逻辑删除及读写分离配置
 - 支持csrf、xss安全加固，参考示例`TestController`
-  - 在需要csrf验证的Controller方法加上@CsrfCheck注解
+  - 在需要csrf验证的Controller方法加上`@CsrfCheck`注解
   - 请求对象需要添加`@Valid`或者`@Validated`注解才会进行xss校验
 - 支持traceid和日志切面记录方法调用日志，参考示例`TestController`
+  - 标准化日志输出，记录调用者IP、服务器IP、入参出参，方便快速定位问题
   - 日志`@LogTrace`支持类、方法层级定义
 
 快速使用指南【重点】
 ----
 - 初次启动【${rootArtifactId}-service-java】，需要调整数据源配置，否则启动报错，后台admin工程类似
+  - 初始化示例SQL: ${rootArtifactId}-dao/src/test/resources/test-init.sql，将其导入数据库进行调试【可选】
   - 数据源配置路径：${rootArtifactId}-service-java/src/main/resources/application-live.yml
 - 该框架已经默认引入`mybatis plus`中间件，支持代码自动生成及数据源常用配置
   - 代码自动生成入口：${rootArtifactId}-dao/src/test/java/${package}.dao/MybatisAutoGeneratorHelper.java
