@@ -22,7 +22,6 @@
   </modules>
 
   <properties>
-    <current.version>1.0.0-SNAPSHOT</current.version>
     <java.version>11</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -44,22 +43,22 @@
       <dependency>
         <groupId>org.gy.framework</groupId>
         <artifactId>spring-simple-demo-util</artifactId>
-        <version>${current.version}</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.gy.framework</groupId>
         <artifactId>spring-simple-demo-dao</artifactId>
-        <version>${current.version}</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.gy.framework</groupId>
         <artifactId>spring-simple-demo-common</artifactId>
-        <version>${current.version}</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.gy.framework</groupId>
         <artifactId>spring-simple-demo-service-api</artifactId>
-        <version>${current.version}</version>
+        <version>${project.version}</version>
       </dependency>
 
       <dependency>
